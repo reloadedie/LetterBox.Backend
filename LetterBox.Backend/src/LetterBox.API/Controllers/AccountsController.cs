@@ -89,7 +89,7 @@ namespace LetterBox.API.Controllers
             [FromServices] RefreshTokensHandler handler,
             CancellationToken cancellationToken)
         {
-            if(!HttpContext.Request.Cookies.TryGetValue("refreshToken", out var refreshToken))
+            if (!HttpContext.Request.Cookies.TryGetValue("refreshToken", out var refreshToken))
                 return Unauthorized();
 
             var command = new RefreshTokensCommand(Guid.Parse(refreshToken));
@@ -118,7 +118,7 @@ namespace LetterBox.API.Controllers
         {
             // Удалить куки
             HttpContext.Response.Cookies.Delete("refreshToken");
-            
+
             // todo Удалить рефреш токен из бд
 
             return Ok();
