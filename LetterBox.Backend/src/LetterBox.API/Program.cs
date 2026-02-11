@@ -78,7 +78,7 @@ app.UseCors(config =>
 {
     string localHost = "http://localhost:3000";
 
-    string ip_front = "192.168.0.104";
+    string ip_front = "nigger";
     string port = ":3000";
 
     string httpsHost_front = "https://" + ip_front + port;
