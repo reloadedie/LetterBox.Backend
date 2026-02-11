@@ -124,12 +124,13 @@ namespace LetterBox.API.Controllers
             return Ok();
         }
 
+        /*
         [HttpGet ("{id:guid}")]
         public async Task<EndpointResult<User>> GetById(
             [FromServices] GetUserByIdHandler Handler,
             Guid id)
         {
 
-        }
+        }*/
     }
 }
