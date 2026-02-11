@@ -17,5 +17,6 @@
             public const string Delete = "categories.delete";
             public const string Read = "categories.read";
         }
+
     }
 }

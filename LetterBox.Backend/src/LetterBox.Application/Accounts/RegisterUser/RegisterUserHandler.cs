@@ -38,12 +38,6 @@ namespace LetterBox.Application.Accounts.RegisterUser
             var baseRole = await _roleManager.FindByNameAsync("BASE")
                 ?? throw new ApplicationException("Base role doesn't exist");
 
-            //var user = new User
-            //{
-            //    UserName = command.UserName,
-            //    Email = command.Email,
-            //};
-
             var user = User.CreateUser(command.UserName, command.Email, baseRole);
 
             var userResult = await _userManager.CreateAsync(user, command.Password);
@@ -52,7 +46,8 @@ namespace LetterBox.Application.Accounts.RegisterUser
                 return Result.Success<ErrorList>();
             }
 
-            var errors = userResult.Errors.Select(e => Error.Failure(e.Code, e.Description)).ToList();
+            var errors = userResult.Errors.Select(e => 
+                Error.Failure(e.Code, e.Description)).ToList();
 
             return new ErrorList(Errors.General.ValueIsInvalid("123").ToErrorList());
         }
